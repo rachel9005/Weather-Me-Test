@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+/* נושא בהיר */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+mat-progress-bar .mat-progress-bar-buffer {
+    background: rgb(184, 184, 184);
+}
+
+mat-progress-bar .mat-progress-bar-fill::after {
+    background: #8fbd11;
+}
+
+::ng-deep .mat-mdc-snack-bar-container {
+    &.error-snackbar {
+        background-color: #f44336 !important; // אדום - שגיאה
+        color: white !important;
+    }
+
+    &.warning-snackbar {
+        background-color: #ff9800 !important; // כתום - אזהרה
+        color: white !important;
+    }
+
+    &.success-snackbar {
+        background-color: #4caf50 !important; // ירוק - הצלחה
+        color: white !important;
+    }
+}

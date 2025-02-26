@@ -1,0 +1,40 @@
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    text-align: center;
+}
+
+button {
+    display: block;
+    margin: 10px auto;
+}
+
+.weather-recommendations {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 1.2rem;
+        margin-top: 10px;
+        color: #333;
+    }
+}

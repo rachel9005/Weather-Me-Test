@@ -1,0 +1,23 @@
+<div class="search-container">
+    <mat-form-field class="search-input" appearance="outline">
+        <mat-label>Search City</mat-label>
+        <input matInput type="text" [formControl]="searchControl" [matAutocomplete]="auto"
+            placeholder="Type city name..." />
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayCityName"
+            (optionSelected)="onCitySelected($event)">
+            <mat-option *ngFor="let city of filteredCities" [value]="city">
+                {{ city.LocalizedName }} ({{ city.Country.LocalizedName }})
+            </mat-option>
+        </mat-autocomplete>
+        <mat-error *ngIf="searchControl.hasError('pattern')">
+            Search must be in English letters only!
+        </mat-error>
+    </mat-form-field>
+</div>
+
+<button mat-button color="primary" (click)="toggleFavorite()" [disabled]="!isValidCitySelected()">
+    {{ isFavorite ? 'Remove from Favorites' : 'Add to Favorites' }}
+</button>
+
+<app-weather [currentWeather]="currentWeather" [forecast]="forecast" [isFavorite]="isFavorite"
+    [selectedCity]="selectedCity" [clothingRecommendation]="clothingRecommendation"></app-weather>

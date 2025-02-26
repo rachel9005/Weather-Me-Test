@@ -1,0 +1,25 @@
+<div class="current-weather" *ngIf="currentWeather">
+    <h2>Current Weather in {{ selectedCity?.LocalizedName || 'Unknown' }}
+        <mat-icon [svgIcon]="isFavorite ? 'favorite-icon' : 'empty-favorite-icon'" color="warn"></mat-icon>
+    </h2>
+    <p>{{ currentWeather?.WeatherText }}</p>
+    <p *ngIf="currentWeatherDisplay?.value">🌡️ {{ currentWeatherDisplay.value }}°{{ currentWeatherDisplay.unit }}</p>
+</div>
+
+<!-- Widget for Clothing Recommendations -->
+<div class="recommendations" *ngIf="clothingRecommendation">
+    <h3>What to Wear Today:</h3>
+    <p>{{ clothingRecommendation || 'No recommendation available.' }}</p>
+</div>
+
+<div class="forecast" *ngIf="forecastDisplay.length > 0">
+    <h2>5-Day Forecast</h2>
+    <div class="forecast-container">
+        <div *ngFor="let day of forecastDisplay" class="forecast-day">
+            <p>{{ day.Date | date: 'EEEE, MMM d' }}</p>
+            <p>🌡️ Min: {{ day.Temperature?.Minimum?.Value }}°{{ day.Temperature?.Minimum?.Unit }}</p>
+            <p>🌡️ Max: {{ day.Temperature?.Maximum?.Value }}°{{ day.Temperature?.Maximum?.Unit }}</p>
+            <p>🌤️ {{ day.Day.IconPhrase }}</p>
+        </div>
+    </div>
+</div>
